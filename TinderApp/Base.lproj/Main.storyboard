@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3VL-d7-GmQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfe-x4-ZkV">
+                                <rect key="frame" x="57" y="49" width="261" height="250"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="araba" translatesAutoresizingMaskIntoConstraints="NO" id="cKX-I0-fCE">
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="250"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="neg-di-A9v">
+                                        <rect key="frame" x="66" y="61" width="129" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="cKX-I0-fCE" firstAttribute="leading" secondItem="rfe-x4-ZkV" secondAttribute="leading" id="1A3-W1-TDj"/>
+                                    <constraint firstAttribute="bottom" secondItem="cKX-I0-fCE" secondAttribute="bottom" id="8QD-Ht-UUU"/>
+                                    <constraint firstItem="neg-di-A9v" firstAttribute="leading" secondItem="rfe-x4-ZkV" secondAttribute="leading" constant="66" id="CeB-Kf-vSd"/>
+                                    <constraint firstItem="cKX-I0-fCE" firstAttribute="centerY" secondItem="neg-di-A9v" secondAttribute="centerY" id="FNU-F8-tkH"/>
+                                    <constraint firstItem="cKX-I0-fCE" firstAttribute="top" secondItem="rfe-x4-ZkV" secondAttribute="top" id="INU-uX-RW1"/>
+                                    <constraint firstItem="cKX-I0-fCE" firstAttribute="centerX" secondItem="neg-di-A9v" secondAttribute="centerX" id="WGp-ie-tex"/>
+                                    <constraint firstAttribute="trailing" secondItem="cKX-I0-fCE" secondAttribute="trailing" id="qO7-sj-RC6"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u1O-Bz-LXD" appends="YES" id="W2G-ZD-g0h"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rfe-x4-ZkV" secondAttribute="bottom" constant="368" id="Scl-Bg-0yr"/>
+                            <constraint firstItem="rfe-x4-ZkV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="bC8-JA-Be8"/>
+                            <constraint firstItem="rfe-x4-ZkV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uuj-ci-Hem"/>
+                            <constraint firstItem="rfe-x4-ZkV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="veU-CJ-hpg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="likeImageView" destination="neg-di-A9v" id="lhu-FL-ClK"/>
+                        <outlet property="pictureView" destination="rfe-x4-ZkV" id="j7x-pf-ABi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="u1O-Bz-LXD">
+                    <connections>
+                        <action selector="swipePicture:" destination="BYZ-38-t0r" id="Sbu-sP-51d"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-385" y="128"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="O00-EA-k6v">
+            <objects>
+                <viewController id="3VL-d7-GmQ" customClass="SignUpViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="by5-oc-DlY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tinder App Kayıt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZl-tI-cPb">
+                                <rect key="frame" x="97" y="72" width="148" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Bi-1w-Snh">
+                                <rect key="frame" x="16" y="151" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail(Opsiyonel)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-UK-JKn">
+                                <rect key="frame" x="16" y="229" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDA-5L-Pth">
+                                <rect key="frame" x="16" y="318" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-Ch-wt0">
+                                <rect key="frame" x="16" y="429" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Kaydol"/>
+                                <connections>
+                                    <action selector="saveUser:" destination="3VL-d7-GmQ" eventType="touchUpInside" id="7he-Ys-bpM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvU-dS-Lp7">
+                                <rect key="frame" x="0.0" y="381" width="343" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-85-LeS">
+                                <rect key="frame" x="16" y="488" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Giriş Yap"/>
+                                <connections>
+                                    <segue destination="ZSN-X0-WQ0" kind="show" id="vRk-ct-KnT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Uuy-3X-orZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="jKb-UK-JKn" id="vNt-9T-CHO"/>
+                        <outlet property="errorLabel" destination="SvU-dS-Lp7" id="9hg-rG-QoW"/>
+                        <outlet property="passwordTextField" destination="cDA-5L-Pth" id="bjw-mN-mRP"/>
+                        <outlet property="usernameTextField" destination="1Bi-1w-Snh" id="L6S-wD-IYS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scq-xV-f2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="397.60000000000002" y="127.28635682158921"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="Tuk-sX-FFE">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="ZSN-X0-WQ0" customClass="LogInViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LVb-sC-Ppm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tinder App Giriş" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFW-X1-JAY">
+                                <rect key="frame" x="16" y="85" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOf-us-dmI">
+                                <rect key="frame" x="16" y="166" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4P-Jy-265">
+                                <rect key="frame" x="16" y="258" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXS-FJ-yHt">
+                                <rect key="frame" x="16" y="334" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3z9-7n-tZw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-3O-Yv9">
+                                <rect key="frame" x="16" y="388" width="61" height="30"/>
+                                <state key="normal" title="Giriş Yap"/>
+                                <connections>
+                                    <action selector="logInUser:" destination="ZSN-X0-WQ0" eventType="touchUpInside" id="0at-Nw-JFQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FFW-X1-JAY" firstAttribute="top" secondItem="Evt-2w-VHb" secondAttribute="top" constant="65" id="1ze-Of-RIE"/>
+                            <constraint firstItem="FFW-X1-JAY" firstAttribute="leading" secondItem="cOf-us-dmI" secondAttribute="leading" id="C4q-KS-uWd"/>
+                            <constraint firstItem="p4P-Jy-265" firstAttribute="top" secondItem="cOf-us-dmI" secondAttribute="bottom" constant="62" id="ESj-4f-ajh"/>
+                            <constraint firstItem="p4P-Jy-265" firstAttribute="trailing" secondItem="AXS-FJ-yHt" secondAttribute="trailing" id="Gm5-vf-BCQ"/>
+                            <constraint firstItem="FFW-X1-JAY" firstAttribute="trailing" secondItem="cOf-us-dmI" secondAttribute="trailing" id="K8b-mv-nA9"/>
+                            <constraint firstItem="cOf-us-dmI" firstAttribute="trailing" secondItem="p4P-Jy-265" secondAttribute="trailing" id="PWH-vC-jbj"/>
+                            <constraint firstItem="FFW-X1-JAY" firstAttribute="trailing" secondItem="LVb-sC-Ppm" secondAttribute="trailingMargin" id="Rcf-5F-mgN"/>
+                            <constraint firstItem="cOf-us-dmI" firstAttribute="leading" secondItem="p4P-Jy-265" secondAttribute="leading" id="eB9-zv-oRr"/>
+                            <constraint firstItem="AXS-FJ-yHt" firstAttribute="leading" secondItem="Z8f-3O-Yv9" secondAttribute="leading" id="hwx-Re-JOO"/>
+                            <constraint firstItem="p4P-Jy-265" firstAttribute="leading" secondItem="AXS-FJ-yHt" secondAttribute="leading" id="koB-8g-D9Y"/>
+                            <constraint firstItem="Z8f-3O-Yv9" firstAttribute="top" secondItem="AXS-FJ-yHt" secondAttribute="bottom" constant="33" id="l8E-Ue-5nf"/>
+                            <constraint firstItem="cOf-us-dmI" firstAttribute="top" secondItem="FFW-X1-JAY" secondAttribute="bottom" constant="60" id="po1-A6-tyj"/>
+                            <constraint firstItem="FFW-X1-JAY" firstAttribute="leading" secondItem="LVb-sC-Ppm" secondAttribute="leadingMargin" id="q6n-EC-feS"/>
+                            <constraint firstItem="AXS-FJ-yHt" firstAttribute="top" secondItem="p4P-Jy-265" secondAttribute="bottom" constant="46" id="ylr-4c-Pgh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Evt-2w-VHb"/>
+                    </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="AXS-FJ-yHt" id="bxB-vb-Qtr"/>
+                        <outlet property="passwordTextField" destination="p4P-Jy-265" id="IUx-Pb-wFV"/>
+                        <outlet property="userNameTextField" destination="cOf-us-dmI" id="ODs-rl-xVH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Gw-Ui-pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287.2" y="127.28635682158921"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="NgL-Br-X9U">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="dr2-I3-pur" customClass="HomeViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DBQ-u7-3gb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Z2k-Au-G4Z">
+                                <rect key="frame" x="123" y="42" width="129" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAW-dM-hHl">
+                                <rect key="frame" x="123" y="178" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3R-KB-Bd6">
+                                <rect key="frame" x="123" y="213" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resmi Değiştir"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="dr2-I3-pur" eventType="touchUpInside" id="J8u-2o-OpP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cinsiyetim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgl-UG-0aD">
+                                <rect key="frame" x="16" y="273" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQO-hE-qOa">
+                                <rect key="frame" x="163" y="447" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Kaydet"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="İlgileniyorum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8M-oG-BYA">
+                                <rect key="frame" x="16" y="355" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAh-jG-hYK">
+                                <rect key="frame" x="123" y="351" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rle-kD-nov">
+                                <rect key="frame" x="123" y="270" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="25d-gd-etN"/>
+                    </view>
+                    <connections>
+                        <outlet property="genderTextField" destination="Rle-kD-nov" id="I3Z-MC-gTM"/>
+                        <outlet property="interestTextField" destination="GAh-jG-hYK" id="bm2-ee-fIR"/>
+                        <outlet property="profileImage" destination="Z2k-Au-G4Z" id="jkt-2B-QtD"/>
+                        <outlet property="userName" destination="dAW-dM-hHl" id="YL7-gj-s0N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dI3-uc-Rx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="126.38680659670166"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="araba" width="1200" height="800"/>
+        <image name="default" width="128" height="128"/>
+        <image name="like" width="128" height="128"/>
+    </resources>
+</document>
