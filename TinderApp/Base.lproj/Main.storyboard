@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3VL-d7-GmQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dr2-I3-pur">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwipeVC" id="BYZ-38-t0r" customClass="ViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,11 +43,26 @@
                                     <outletCollection property="gestureRecognizers" destination="u1O-Bz-LXD" appends="YES" id="W2G-ZD-g0h"/>
                                 </connections>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbA-lz-SRW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Arkadaş Bul" id="AOu-3a-kHY">
+                                        <barButtonItem key="leftBarButtonItem" title="Çıkış" id="j07-DJ-aIZ">
+                                            <connections>
+                                                <action selector="logOut:" destination="BYZ-38-t0r" id="5gv-Fe-YcQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rfe-x4-ZkV" secondAttribute="bottom" constant="368" id="Scl-Bg-0yr"/>
+                            <constraint firstItem="DbA-lz-SRW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VSi-8D-hgS"/>
                             <constraint firstItem="rfe-x4-ZkV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="bC8-JA-Be8"/>
+                            <constraint firstItem="DbA-lz-SRW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bR7-IV-FB4"/>
+                            <constraint firstItem="DbA-lz-SRW" firstAttribute="centerX" secondItem="rfe-x4-ZkV" secondAttribute="centerX" id="sxC-Lz-6dP"/>
                             <constraint firstItem="rfe-x4-ZkV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uuj-ci-Hem"/>
                             <constraint firstItem="rfe-x4-ZkV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="veU-CJ-hpg"/>
                         </constraints>
@@ -65,7 +80,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-385" y="128"/>
+            <point key="canvasLocation" x="2935" y="127"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="O00-EA-k6v">
@@ -181,6 +196,7 @@
                                 <state key="normal" title="Giriş Yap"/>
                                 <connections>
                                     <action selector="logInUser:" destination="ZSN-X0-WQ0" eventType="touchUpInside" id="0at-Nw-JFQ"/>
+                                    <segue destination="dr2-I3-pur" kind="show" id="ad3-0a-39X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,6 +267,10 @@
                                 <rect key="frame" x="163" y="447" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="save:" destination="dr2-I3-pur" eventType="touchUpInside" id="g1c-Fg-2Cu"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="s2b-dX-4fW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="İlgileniyorum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8M-oG-BYA">
                                 <rect key="frame" x="16" y="355" width="97" height="21"/>
@@ -273,11 +293,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uop-Ff-7EB">
+                                <rect key="frame" x="16" y="513" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="25d-gd-etN"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="Uop-Ff-7EB" id="oaz-Zl-7GZ"/>
                         <outlet property="genderTextField" destination="Rle-kD-nov" id="I3Z-MC-gTM"/>
                         <outlet property="interestTextField" destination="GAh-jG-hYK" id="bm2-ee-fIR"/>
                         <outlet property="profileImage" destination="Z2k-Au-G4Z" id="jkt-2B-QtD"/>

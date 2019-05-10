@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var interestTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
-    var data:[String] = ["Seçiniz","Bay","Bayan"] //Picker View Elemanlarımız
+    var data:[String] = ["Seçiniz","Kadın","Erkek"] //Picker View Elemanlarımız
     var current_username: String?
     
     var imagePicker = UIImagePickerController()
@@ -32,6 +34,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidLoad()
         userName.text = current_username
         profileImage.setRounded()
+        errorLabel.isHidden = true
         
         genderPickerView.delegate = self
         genderPickerView.dataSource = self
@@ -45,6 +48,17 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         interestTextField.inputView = interestPickerView
         
         doneButton()
+        
+        //Profil Bilgilerini veritabanından okuma
+        if let currentUser = PFUser.current(){
+            if let gender = currentUser["gender"]{
+                genderTextField.text = gender as? String
+            }
+            if let interest = currentUser["interest"]{
+                interestTextField.text = interest as? String
+            }
+        }
+        
     }
     
     @IBAction func changeImage(_ sender: Any) {
@@ -76,6 +90,16 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.present(actionSheet, animated: true, completion: nil)
         
     }
+    
+    // Profil resmini anlık değiştiriyoruz, veritabanına kaydetmiyoruz!
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage{
+            profileImage.image = image
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //PickerView Metodları
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -117,6 +141,34 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @objc func dismissPicker(){
         view.endEditing(true) //İşlem bittiğinde kapat
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        //Giriş yapan kullanıcı current user (var olan kullanıcı)
+        PFUser.current()?["gender"] = self.selectedGender//Yukarıda cinsiyet alanında seçilen değer
+        PFUser.current()?["interest"] = self.selectedInterest
+        
+        if let image = profileImage.image{
+            if let imageData = image.pngData(){
+                PFUser.current()?["profilePhoto"] = PFFileObject(name: "photo.png", data: imageData)
+                //Veri kaydetme
+                PFUser.current()?.saveInBackground(block: { (success, error) in
+                    if error != nil{
+                        if let saveError = error as NSError?{
+                            if let errorDetail = saveError.userInfo["error"] as? String{
+                                self.errorLabel.isHidden = false
+                                self.errorLabel.text = errorDetail
+                            }
+                        }
+                    }else{
+                        print("Profil güncelleme işlemi başarıyla tamamlandı.")
+                        let swipeVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeVC") as! ViewController
+                        self.present(swipeVC, animated: true, completion: nil)
+                    }
+                })
+            }
+        }
+        
     }
     
 }
