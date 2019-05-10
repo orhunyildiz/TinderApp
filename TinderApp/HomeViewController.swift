@@ -8,12 +8,14 @@
 
 import UIKit
 import Parse
+import Photos
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var interestTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    
     
     var data:[String] = ["Seçiniz","Kadın","Erkek"] //Picker View Elemanlarımız
     var current_username: String?
@@ -36,6 +38,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         profileImage.setRounded()
         errorLabel.isHidden = true
         
+        imagePicker.delegate = self
         genderPickerView.delegate = self
         genderPickerView.dataSource = self
         interestPickerView.delegate = self
@@ -48,6 +51,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         interestTextField.inputView = interestPickerView
         
         doneButton()
+        //checkPermission()
         
         //Profil Bilgilerini veritabanından okuma
         if let currentUser = PFUser.current(){
@@ -92,13 +96,37 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     // Profil resmini anlık değiştiriyoruz, veritabanına kaydetmiyoruz!
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
             profileImage.image = image
         }
+        
         self.dismiss(animated: true, completion: nil)
     }
+    
+    /*func checkPermission() {
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            print("Access is granted by user")
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({
+                (newStatus) in
+                print("status is \(newStatus)")
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    /* do stuff here */
+                    print("success")
+                }
+            })
+            print("It is not determined until now")
+        case .restricted:
+            // same same
+            print("User do not have access to photo album.")
+        case .denied:
+            // same same
+            print("User has denied the permission.")
+        }
+    }*/
     
     //PickerView Metodları
     
@@ -168,11 +196,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 })
             }
         }
-        
     }
-    
 }
-
 extension UIImageView {
     func setRounded() {
         self.layer.cornerRadius = 25
