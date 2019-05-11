@@ -8,14 +8,11 @@
 
 import UIKit
 import Parse
-import Photos
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var interestTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
-    
     
     var data:[String] = ["Seçiniz","Kadın","Erkek"] //Picker View Elemanlarımız
     var current_username: String?
@@ -31,12 +28,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userName.text = current_username
         profileImage.setRounded()
-        errorLabel.isHidden = true
         
         imagePicker.delegate = self
         genderPickerView.delegate = self
@@ -51,18 +48,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         interestTextField.inputView = interestPickerView
         
         doneButton()
-        //checkPermission()
-        
-        //Profil Bilgilerini veritabanından okuma
-        if let currentUser = PFUser.current(){
-            if let gender = currentUser["gender"]{
-                genderTextField.text = gender as? String
-            }
-            if let interest = currentUser["interest"]{
-                interestTextField.text = interest as? String
-            }
-        }
-        
     }
     
     @IBAction func changeImage(_ sender: Any) {
@@ -95,38 +80,14 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
     }
     
-    // Profil resmini anlık değiştiriyoruz, veritabanına kaydetmiyoruz!
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    //Profil resmini anlık değiştiriyoruz, veritabanına kaydetmiyoruz!
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
             profileImage.image = image
         }
-        
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*func checkPermission() {
-        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
-        switch photoAuthorizationStatus {
-        case .authorized:
-            print("Access is granted by user")
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization({
-                (newStatus) in
-                print("status is \(newStatus)")
-                if newStatus ==  PHAuthorizationStatus.authorized {
-                    /* do stuff here */
-                    print("success")
-                }
-            })
-            print("It is not determined until now")
-        case .restricted:
-            // same same
-            print("User do not have access to photo album.")
-        case .denied:
-            // same same
-            print("User has denied the permission.")
-        }
-    }*/
     
     //PickerView Metodları
     
@@ -172,32 +133,33 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func save(_ sender: Any) {
-        //Giriş yapan kullanıcı current user (var olan kullanıcı)
-        PFUser.current()?["gender"] = self.selectedGender//Yukarıda cinsiyet alanında seçilen değer
+        PFUser.current()?["gender"] = self.selectedGender
         PFUser.current()?["interest"] = self.selectedInterest
         
         if let image = profileImage.image{
             if let imageData = image.pngData(){
                 PFUser.current()?["profilePhoto"] = PFFileObject(name: "photo.png", data: imageData)
-                //Veri kaydetme
                 PFUser.current()?.saveInBackground(block: { (success, error) in
                     if error != nil{
                         if let saveError = error as NSError?{
                             if let errorDetail = saveError.userInfo["error"] as? String{
-                                self.errorLabel.isHidden = false
-                                self.errorLabel.text = errorDetail
+                                self.errorLabel.isHidden=false
+                                self.errorLabel.text=errorDetail
                             }
                         }
                     }else{
-                        print("Profil güncelleme işlemi başarıyla tamamlandı.")
-                        let swipeVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeVC") as! ViewController
-                        self.present(swipeVC, animated: true, completion: nil)
+                        print("Profil guncelleme basarılı")
                     }
                 })
             }
         }
+        
+        
+        
     }
+    
 }
+
 extension UIImageView {
     func setRounded() {
         self.layer.cornerRadius = 25

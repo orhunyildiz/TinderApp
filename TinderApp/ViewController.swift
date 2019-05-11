@@ -87,12 +87,5 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    @IBAction func logOut(_ sender: Any) {
-        PFUser.logOut()
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LogInViewController
-        self.present(loginVC, animated: true, completion: nil)
-    }
-    
 }
 
