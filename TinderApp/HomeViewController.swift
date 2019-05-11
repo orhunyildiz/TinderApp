@@ -48,6 +48,26 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         interestTextField.inputView = interestPickerView
         
         doneButton()
+        self.errorLabel.isHidden = true
+        
+        if let currentUser = PFUser.current(){
+            if let gender = currentUser["gender"]{
+                genderTextField.text = gender as? String
+            }
+            if let interest = currentUser["interest"]{
+                interestTextField.text = interest as? String
+            }
+            
+            if let photo = currentUser["profilePhoto"] as? PFFileObject{
+                photo.getDataInBackground { (data, error) in
+                    if let myImageData = data{
+                        if let image = UIImage(data: myImageData){
+                            self.profileImage.image = image
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func changeImage(_ sender: Any) {
