@@ -169,6 +169,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         }
                     }else{
                         print("Profil guncelleme basarılı")
+                        let swipeVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeVC") as! ViewController
+                        self.present(swipeVC, animated: true, completion: nil)
                     }
                 })
             }
