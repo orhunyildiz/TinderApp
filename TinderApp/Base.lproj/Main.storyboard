@@ -69,6 +69,7 @@
                     <connections>
                         <outlet property="likeImageView" destination="neg-di-A9v" id="lhu-FL-ClK"/>
                         <outlet property="pictureView" destination="rfe-x4-ZkV" id="j7x-pf-ABi"/>
+                        <outlet property="userProfilePhoto" destination="cKX-I0-fCE" id="9Jh-HU-da3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

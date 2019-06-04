@@ -11,35 +11,13 @@ import Parse
 
 class ViewController: UIViewController {
     @IBOutlet weak var pictureView: UIView!
-    @IBOutlet weak var likeImageView: UIImageView!
+    @IBOutlet weak var likeImageView: UIImageView!    
+    @IBOutlet weak var userProfilePhoto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let student = PFQuery(className: "Student")
-        /*student["name"] = "Ali"
-        student["last_name"] = "Veli"
-        student["age"] = 21
-        student.saveInBackground { (success, error) in
-            if success{
-                print("Veri Kaydedildi.")
-            }else{
-                print("Hata Var!")
-            }
-        }*/
-        
-        student.findObjectsInBackground { (objects, error) in //parametreler opsiyonel
-            if error != nil{
-                print("Hata Var!")
-            }else{
-                if let myDatas = objects{ //opsiyonel olduğu için if let yapısı kullanıldı
-                    for myData in myDatas{ // birden fazla veri olduğu için dizi şeklinde düşünülerek for kullanıldı.
-                        print(myData["name"] as! String)
-                    }
-                }
-            }
-        }
-        
+        retrieveUsers()
     }
     
     @IBAction func swipePicture(_ sender: UIPanGestureRecognizer) {
@@ -92,5 +70,32 @@ class ViewController: UIViewController {
         let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpViewController
         self.present(signUpVC, animated: true, completion: nil)
     }
+    
+    //Veritabanındaki kullanıcıların resimlerini belli koşula göre çekme.
+    //Parse iOS dokümanına göre
+    func retrieveUsers(){
+        if let query = PFUser.query(){
+            query.whereKey("interest", equalTo: "Erkek")//İlgi alanı erkek olanlar
+            query.whereKey("gender", equalTo: "Kadın")//Cinsiyeti kadın olanlar
+            query.limit = 2
+            
+            query.findObjectsInBackground { (objects, error) in
+                if let users = objects{
+                    for object in users{
+                        if let user = object as? PFUser{//Resmi çekiyoruz.
+                            if let imgFile = user["profilePhoto"] as? PFFileObject{
+                                imgFile.getDataInBackground(block: { (data, error) in
+                                    if let imgData = data{//img datayı aldıktan sonra resmi göstereceğiz
+                                        self.userProfilePhoto.image = UIImage(data: imgData)
+                                    }
+                                })
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
-

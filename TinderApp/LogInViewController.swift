@@ -43,7 +43,7 @@ class LogInViewController: UIViewController {
                 let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
                 homeVC.current_username = user?.username //HomeVC'ye kullanıcı adını taşıma
                 self.present(homeVC, animated: true, completion: nil)
-                print("Başaralı bir şekilde giriş yaptınız.")
+                print("Başarılı bir şekilde giriş yaptınız.")
             }
             
         }
