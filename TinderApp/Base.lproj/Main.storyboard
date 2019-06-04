@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwipeVC" id="BYZ-38-t0r" customClass="ViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,6 +43,19 @@
                                     <outletCollection property="gestureRecognizers" destination="u1O-Bz-LXD" appends="YES" id="W2G-ZD-g0h"/>
                                 </connections>
                             </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P30-IU-T9K">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Arkadaş Ekle" id="pZd-rJ-uhp">
+                                        <barButtonItem key="leftBarButtonItem" title="Çıkış" id="5J0-hW-wbN">
+                                            <connections>
+                                                <action selector="logout:" destination="BYZ-38-t0r" id="LQj-8p-HCQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -65,12 +78,12 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-385" y="128"/>
+            <point key="canvasLocation" x="2890" y="127"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="O00-EA-k6v">
             <objects>
-                <viewController id="3VL-d7-GmQ" customClass="SignUpViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="3VL-d7-GmQ" customClass="SignUpViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="by5-oc-DlY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
