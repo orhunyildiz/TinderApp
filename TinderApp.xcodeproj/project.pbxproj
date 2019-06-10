@@ -14,6 +14,8 @@
 		7415868D227469FF0012FF40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7415868B227469FF0012FF40 /* Main.storyboard */; };
 		7415868F22746A010012FF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7415868E22746A010012FF40 /* Assets.xcassets */; };
 		7415869222746A010012FF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7415869022746A010012FF40 /* LaunchScreen.storyboard */; };
+		7428EBDA22AEAADC001AFBCD /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7428EBD922AEAADC001AFBCD /* MatchViewController.swift */; };
+		7428EBDC22AEAB37001AFBCD /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7428EBDB22AEAB37001AFBCD /* MatchTableViewCell.swift */; };
 		74A48D8F227F159A009E6016 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A48D8E227F159A009E6016 /* SignUpViewController.swift */; };
 		BC4F20347A9DF95BBD5C9102 /* Pods_TinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805B8E7FCC8170AC55DF6C03 /* Pods_TinderApp.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		7415868E22746A010012FF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7415869122746A010012FF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7415869322746A010012FF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7428EBD922AEAADC001AFBCD /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		7428EBDB22AEAB37001AFBCD /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		74A48D8E227F159A009E6016 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		805B8E7FCC8170AC55DF6C03 /* Pods_TinderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90DCEB06FA1E9CA81C26E29 /* Pods-TinderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderApp.release.xcconfig"; path = "Target Support Files/Pods-TinderApp/Pods-TinderApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				74A48D8E227F159A009E6016 /* SignUpViewController.swift */,
 				740177F12281C44D00C8FE32 /* LogInViewController.swift */,
 				740177F32281CA9C00C8FE32 /* HomeViewController.swift */,
+				7428EBD922AEAADC001AFBCD /* MatchViewController.swift */,
+				7428EBDB22AEAB37001AFBCD /* MatchTableViewCell.swift */,
 				7415868B227469FF0012FF40 /* Main.storyboard */,
 				7415868E22746A010012FF40 /* Assets.xcassets */,
 				7415869022746A010012FF40 /* LaunchScreen.storyboard */,
@@ -219,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7428EBDC22AEAB37001AFBCD /* MatchTableViewCell.swift in Sources */,
+				7428EBDA22AEAADC001AFBCD /* MatchViewController.swift in Sources */,
 				740177F42281CA9C00C8FE32 /* HomeViewController.swift in Sources */,
 				740177F22281C44D00C8FE32 /* LogInViewController.swift in Sources */,
 				74A48D8F227F159A009E6016 /* SignUpViewController.swift in Sources */,

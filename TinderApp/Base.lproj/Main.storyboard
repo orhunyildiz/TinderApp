@@ -53,6 +53,11 @@
                                                 <action selector="logout:" destination="BYZ-38-t0r" id="LQj-8p-HCQ"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Eşleşmeler" id="EkC-J7-CZx">
+                                            <connections>
+                                                <segue destination="4gm-11-X0Z" kind="show" id="SXf-hY-Wpb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -80,6 +85,92 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2890" y="127"/>
+        </scene>
+        <!--Match View Controller-->
+        <scene sceneID="2lM-hE-pb9">
+            <objects>
+                <viewController storyboardIdentifier="MatchID" id="4gm-11-X0Z" customClass="MatchViewController" customModule="TinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YT5-co-sAv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2S-mH-0n6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Kullanıcı Eşleşmeleri" id="pfG-07-BEO">
+                                        <barButtonItem key="leftBarButtonItem" title="Geri" id="Lbl-It-j9C">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="fp4-kq-EGb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rjY-4e-Ceu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="matchCell" rowHeight="160" id="9O0-6h-802" customClass="MatchTableViewCell" customModule="TinderApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9O0-6h-802" id="sMt-em-NZy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BO5-YU-SOO">
+                                                    <rect key="frame" x="15" y="29" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="N55-8I-WK5"/>
+                                                        <constraint firstAttribute="width" constant="100" id="vVA-NQ-4CX"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanıcı İsmi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTd-Gk-iMw">
+                                                    <rect key="frame" x="123" y="63" width="229" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FTd-Gk-iMw" secondAttribute="bottom" constant="54" id="Ki6-aO-ciW"/>
+                                                <constraint firstItem="FTd-Gk-iMw" firstAttribute="top" secondItem="sMt-em-NZy" secondAttribute="topMargin" constant="52" id="LsE-cg-kfg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BO5-YU-SOO" secondAttribute="bottom" constant="20" id="Q5B-7d-9m8"/>
+                                                <constraint firstItem="FTd-Gk-iMw" firstAttribute="leading" secondItem="BO5-YU-SOO" secondAttribute="trailing" constant="8" id="R6v-b1-MUl"/>
+                                                <constraint firstItem="BO5-YU-SOO" firstAttribute="leading" secondItem="sMt-em-NZy" secondAttribute="leadingMargin" id="TIO-30-fi0"/>
+                                                <constraint firstItem="FTd-Gk-iMw" firstAttribute="leading" secondItem="BO5-YU-SOO" secondAttribute="trailing" constant="8" id="cpX-ub-yYd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FTd-Gk-iMw" secondAttribute="trailing" constant="8" id="fUm-22-JLN"/>
+                                                <constraint firstItem="BO5-YU-SOO" firstAttribute="top" secondItem="sMt-em-NZy" secondAttribute="topMargin" constant="18" id="ttY-no-HeB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="matchUserName" destination="FTd-Gk-iMw" id="F1V-Uy-Ejb"/>
+                                            <outlet property="matchUserPhoto" destination="BO5-YU-SOO" id="nrb-kQ-pBf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4gm-11-X0Z" id="rwJ-sV-zOf"/>
+                                    <outlet property="delegate" destination="4gm-11-X0Z" id="OiC-ew-mj9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rjY-4e-Ceu" firstAttribute="trailing" secondItem="UAz-6C-Cne" secondAttribute="trailing" id="6Ql-4r-F1O"/>
+                            <constraint firstItem="rjY-4e-Ceu" firstAttribute="top" secondItem="f2S-mH-0n6" secondAttribute="bottom" id="7kh-5f-nQ4"/>
+                            <constraint firstItem="rjY-4e-Ceu" firstAttribute="bottom" secondItem="UAz-6C-Cne" secondAttribute="bottom" id="Dpn-fL-73y"/>
+                            <constraint firstItem="f2S-mH-0n6" firstAttribute="leading" secondItem="UAz-6C-Cne" secondAttribute="leading" id="JPG-lg-SAr"/>
+                            <constraint firstItem="f2S-mH-0n6" firstAttribute="top" secondItem="YT5-co-sAv" secondAttribute="top" id="QqU-vA-awl"/>
+                            <constraint firstItem="rjY-4e-Ceu" firstAttribute="leading" secondItem="UAz-6C-Cne" secondAttribute="leading" id="qXA-X0-nLX"/>
+                            <constraint firstItem="rjY-4e-Ceu" firstAttribute="top" secondItem="f2S-mH-0n6" secondAttribute="bottom" id="rKi-4D-mmp"/>
+                            <constraint firstItem="f2S-mH-0n6" firstAttribute="trailing" secondItem="UAz-6C-Cne" secondAttribute="trailing" id="zxp-Sf-sor"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UAz-6C-Cne"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nek-7k-vBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3672.8000000000002" y="127.28635682158921"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="O00-EA-k6v">
@@ -319,4 +410,7 @@
         <image name="default" width="128" height="128"/>
         <image name="like" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fp4-kq-EGb"/>
+    </inferredMetricsTieBreakers>
 </document>
