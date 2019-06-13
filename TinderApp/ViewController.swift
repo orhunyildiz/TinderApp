@@ -101,8 +101,11 @@ class ViewController: UIViewController {
     //Parse iOS dokümanına göre
     func retrieveUsers(){
         if let query = PFUser.query(){
-            query.whereKey("interest", equalTo: "Erkek")//İlgi alanı erkek olanlar
-            query.whereKey("gender", equalTo: "Kadın")//Cinsiyeti kadın olanlar
+            //let gender = PFUser.current()?["gender"]
+            //let interest = PFUser.current()?["interest"]
+            query.whereKey("interest", equalTo: "Kadın")//İlgi alanı
+            query.whereKey("gender", equalTo: "Erkek")//Cinsiyet
+            
             //Sola veya sağa kaydırılan resmin bir daha gelmemesi gerekiyor.
             
             var dontShow = [String]()
