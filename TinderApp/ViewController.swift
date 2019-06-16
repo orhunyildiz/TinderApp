@@ -103,8 +103,8 @@ class ViewController: UIViewController {
         if let query = PFUser.query(){
             //let gender = PFUser.current()?["gender"]
             //let interest = PFUser.current()?["interest"]
-            query.whereKey("interest", equalTo: "Kadın")//İlgi alanı
-            query.whereKey("gender", equalTo: "Erkek")//Cinsiyet
+            query.whereKey("interest", equalTo: "Erkek")//İlgi alanı
+            query.whereKey("gender", equalTo: "Kadın")//Cinsiyet
             
             //Sola veya sağa kaydırılan resmin bir daha gelmemesi gerekiyor.
             
